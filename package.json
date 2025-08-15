@@ -5,10 +5,10 @@
   "license": "ISC",
   "author": "Walison Michael",
   "type": "commonjs",
-  "main": "node index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
