@@ -1,0 +1,85 @@
+<%- include('templates/header') %>
+    <main>
+    <!--? Hero Start -->
+    <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-20 text-center">
+                            <h2> Become A <%= locals.title %></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+   
+    <!-- Featured_job_start -->
+    <section class="featured-job-area section-padding30 section-bg2" >
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-9 col-md-10 col-sm-12">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle text-center mb-80">
+                        <span>Fill up the form </span>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center filup">
+             <div class="col-md-12">
+                <div id="msg"></div>
+                 <div class="card " style="border-top:0.5px solid lightgrey; border-left:none;border-right:none;border-bottom:none">
+                   <div class="card-body" >
+                    <form action="" id="volunteer_form">
+                       <div class="form_div" >
+                           <input type="text" class="form-control text_input" name="" id="available" placeholder="When are you available to start" >
+                       </div>
+
+                       <div class="form_div" >
+                           <input type="text" class="form-control text_input" name="" id="first_name" placeholder=" First Name" >
+                       </div>
+
+                       <div class="form_div" >
+                           <input type="text" class="form-control text_input" name="" id="last_name" placeholder=" Last Name" >
+                       </div>
+
+                       <div class="form_div" >
+                           <input type="text" class="form-control text_input" name="" id="address" placeholder="Address" >
+                       </div>
+
+                       <div class="form_div" >
+                           <input type="text" class="form-control text_input" name="" id="city" placeholder="City" >
+                       </div>
+
+                       <div class="form_div" >
+                           <input type="text" class="form-control text_input" name="" id="country" placeholder="Country" >
+                       </div>
+                       
+                       <div class="form_div" >
+                           <input type="text" class="form-control text_input" name="" id="phone_number" placeholder="Phone Number" >
+                       </div>
+                       <div class="form_div" >
+                           <input type="text" class="form-control text_input" name="" id="email" placeholder="Email" >
+                       </div>
+                       <div class="form_div" >
+                           <button type="submit" class="btn btn-primary" style="width:40%">Submit</button>
+                       </div>
+                    </form>
+                </div>
+              </div> 
+
+             </div>
+                
+               
+               
+              
+               
+            </div>
+        </div>
+    </section>
+    <!-- Featured_job_end -->
+    </main>
+  <%- include('templates/footer') %>

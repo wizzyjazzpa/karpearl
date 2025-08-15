@@ -1,0 +1,197 @@
+
+
+<%- include('static/header') %>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<h1 class="h3 mb-3">Karpearl Dashboard</h1>
+
+					<div class="row">
+						<div class="col-xl-12 col-xxl-5 d-flex">
+							<div class="w-100">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Events/Program Uploads </h5>
+													</div>
+												</div>
+												<!-- beginning of hold form-->
+											    <div x-data="uploadForm()">
+													<p x-text="msg" style="color:forestgreen"></p>
+													<form @submit.prevent="submitForm"  enctype="multipart/form-data">
+												    <input type="text" class="form-control" name="heading" x-model="heading" placeholder="Heading Here ..." required>
+													<input type="file" @change="handleFile" id="fileupload" accept="image/*" class="form-control" style="margin-top:2%; margin-bottom:2%" required >
+													<button type="submit" class=" btn btn-primary" sty>Uplaod Programs</button>
+											       </form>
+												</div><!-- end of hold form-->
+												<div class="mb-0">
+													<span class="text-muted">maximum file size 1mb</span>
+												</div><!-- end of muted text form-->
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Upload Team</h5>
+													</div>
+
+													<!-- beginning of hold form-->
+											    <div x-data="teams_form()">
+													<p x-text="team_msg" style="color:forestgreen"></p>
+													<form @submit.prevent="submitTeamsForm"   enctype="multipart/form-data">
+												    <input type="text" class="form-control" x-model="team_heading" id="heading" placeholder="Heading Here ..." required>
+													<input type="file" @change="handleteamFile" accept="image/*" class="form-control" style="margin-top:2%; margin-bottom:2%" >
+													<button type="submit" class=" btn btn-primary" >Uplaod Programs</button>
+											       </form>
+												</div><!-- end of hold form-->
+												<div class="mb-0">
+													<span class="text-muted">maximum file size 1mb</span>
+												</div><!-- end of muted text form-->
+											</div>
+												
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Numbers of vounteers/treated/donations</h5>
+													</div>
+													 <div id='msg'></div>
+													<!-- beginning of hold form-->
+											    <div id="numbers_form">
+													<form  id="number_form" >
+												    <input type="text" class="form-control"  id="volunteer" placeholder="Enter number of volunteer e.g(30000)" required>
+													<input type="text" id="treatment"  class="form-control" placeholder="Enter number people treated e.g(30000)" style="margin-top:2%" required>
+													<input type="text" id="donations"  class="form-control" placeholder="Enter Amount of donations e.g(30000)" style="margin-top:2%; margin-bottom: 2%;" required>
+													
+													<button type="submit" class=" btn btn-primary" sty>Save Numbers</button>
+											       </form>
+												</div><!-- end of hold form-->
+												
+												</div>
+												
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Upcoming Events Upload</h5>
+													</div>
+
+													 <div x-data="upcoming_form()">
+													<p x-text="upcoming_msg" style="color:forestgreen"></p>
+													<form @submit.prevent="submitUpcomingForm"   enctype="multipart/form-data">
+												    <input type="text" class="form-control" x-model="upcoming_heading"  placeholder="Heading Here ..." required style="margin-bottom:2%">
+													<input type="text" class="form-control" x-model="uptime"  placeholder="Event Time Here e.g(8:30 - 9:00AM)" required style="margin-bottom:2%">
+													<input type="date" class="form-control" x-model="update" id="heading" placeholder="Date Here ..."  style="margin-bottom:2%">
+													<input type="file" @change="handleupcomingFile" accept="image/*" class="form-control" style="margin-top:2%; margin-bottom:2%" >
+													<button type="submit" class=" btn btn-primary" >Uplaod Programs</button>
+											       </form>
+												</div><!-- end of hold form-->
+												<div class="mb-0">
+													<span class="text-muted">maximum file size 1mb</span>
+												</div><!-- end of muted text form-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						
+					</div>
+
+
+					<div class="row">
+						<div class="col-12 col-lg-12 col-xxl-9 d-flex">
+							<div class="card flex-fill">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Volunteers</h5>
+								</div>
+								<table class="table table-hover my-0">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th class="d-none d-xl-table-cell">Start Date</th>
+											<th class="d-none d-xl-table-cell">End Date</th>
+											<th>Status</th>
+											<th class="d-none d-md-table-cell">Assignee</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Project Apollo</td>
+											<td class="d-none d-xl-table-cell">01/01/2023</td>
+											<td class="d-none d-xl-table-cell">31/06/2023</td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
+										</tr>
+										<tr>
+											<td>Project Fireball</td>
+											<td class="d-none d-xl-table-cell">01/01/2023</td>
+											<td class="d-none d-xl-table-cell">31/06/2023</td>
+											<td><span class="badge bg-danger">Cancelled</span></td>
+											<td class="d-none d-md-table-cell">William Harris</td>
+										</tr>
+										<tr>
+											<td>Project Hades</td>
+											<td class="d-none d-xl-table-cell">01/01/2023</td>
+											<td class="d-none d-xl-table-cell">31/06/2023</td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Sharon Lessman</td>
+										</tr>
+										<tr>
+											<td>Project Nitro</td>
+											<td class="d-none d-xl-table-cell">01/01/2023</td>
+											<td class="d-none d-xl-table-cell">31/06/2023</td>
+											<td><span class="badge bg-warning">In progress</span></td>
+											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
+										</tr>
+										<tr>
+											<td>Project Phoenix</td>
+											<td class="d-none d-xl-table-cell">01/01/2023</td>
+											<td class="d-none d-xl-table-cell">31/06/2023</td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">William Harris</td>
+										</tr>
+										<tr>
+											<td>Project X</td>
+											<td class="d-none d-xl-table-cell">01/01/2023</td>
+											<td class="d-none d-xl-table-cell">31/06/2023</td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Sharon Lessman</td>
+										</tr>
+										<tr>
+											<td>Project Romeo</td>
+											<td class="d-none d-xl-table-cell">01/01/2023</td>
+											<td class="d-none d-xl-table-cell">31/06/2023</td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Christina Mason</td>
+										</tr>
+										<tr>
+											<td>Project Wombat</td>
+											<td class="d-none d-xl-table-cell">01/01/2023</td>
+											<td class="d-none d-xl-table-cell">31/06/2023</td>
+											<td><span class="badge bg-warning">In progress</span></td>
+											<td class="d-none d-md-table-cell">William Harris</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</main>
+
+		<%- include('static/footer') %>
