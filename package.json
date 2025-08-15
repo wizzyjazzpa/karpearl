@@ -5,7 +5,7 @@
   "license": "ISC",
   "author": "Walison Michael",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "node index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "index.js"
